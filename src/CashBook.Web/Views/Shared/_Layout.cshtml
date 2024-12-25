@@ -6,8 +6,15 @@
     <title>@ViewData["Title"]</title>
     <script type="importmap"></script>
     <link rel="stylesheet" href="~/css/styles.css" asp-append-version="true" />
+    <script>
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
 </head>
-<body>
+<body class="bg-gray-50 dark:bg-gray-900">
     <div class="container">
         <main role="main">
             @RenderBody()
