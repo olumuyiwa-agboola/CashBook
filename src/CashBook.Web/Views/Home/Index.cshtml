@@ -1,4 +1,8 @@
-﻿@{
+﻿@using CashBook.Core.Models
+
+@model IEnumerable<Transaction>
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -33,48 +37,30 @@
             </tr>
         </thead>
         <tbody>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="px-6 py-4 whitespace-nowrap dark:text-white">
-                    14-05-2024
-                </th>
-                <td class="px-6 py-4">
-                    960.00
-                </td>
-                <td class="px-6 py-4">
-                    Four bottles of water
-                </td>
-                <td class="px-6 py-4">
-                    Expenditure
-                </td>
-                <td class="px-6 py-4">
-                    Food
-                </td>
-                <td class="flex items-center px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Delete</a>
-                </td>
-            </tr>
-            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                <th scope="row" class="px-6 py-4 whitespace-nowrap dark:text-white">
-                    24-05-2024
-                </th>
-                <td class="px-6 py-4">
-                    960.00
-                </td>
-                <td class="px-6 py-4">
-                    Four bottles of water
-                </td>
-                <td class="px-6 py-4">
-                    Expenditure
-                </td>
-                <td class="px-6 py-4">
-                    Food
-                </td>
-                <td class="flex items-center px-6 py-4">
-                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Delete</a>
-                </td>
-            </tr>
+            @foreach (var item in Model)
+            {
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                    <th scope="row" class="px-6 py-4 whitespace-nowrap dark:text-white">
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </th>
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.Description)
+                    </td>
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td class="px-6 py-4">
+                        @Html.DisplayFor(modelItem => item.Subtype)
+                    </td>
+                    <td class="flex items-center px-6 py-4">
+                        <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Delete</a>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

@@ -1,26 +1,18 @@
 using System.Diagnostics;
 using CashBook.Web.Models;
+using CashBook.Core.Models;
 using Microsoft.AspNetCore.Mvc;
+using CashBook.Core.Abstractions.IServices;
 
 namespace CashBook.Web.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController(ITransactionsService _transactionsService) : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public async Task<IActionResult> Index()
         {
-            _logger = logger;
-        }
+            List<Transaction>? result = await _transactionsService.GetAllTransactions();
 
-        public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
-            return View();
+            return View(result);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
