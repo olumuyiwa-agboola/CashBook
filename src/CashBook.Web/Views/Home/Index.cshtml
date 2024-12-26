@@ -1,3 +1,80 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+
+<div class="flex justify-end mt-4 mb-4">
+    <button type="button" class="px-5 py-2.5 text-sm font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+        Add Transaction
+    </button>
+</div>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+    <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-500 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    Date
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Amount
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Description
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Type
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Subtype
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Actions
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 whitespace-nowrap dark:text-white">
+                    14-05-2024
+                </th>
+                <td class="px-6 py-4">
+                    960.00
+                </td>
+                <td class="px-6 py-4">
+                    Four bottles of water
+                </td>
+                <td class="px-6 py-4">
+                    Expenditure
+                </td>
+                <td class="px-6 py-4">
+                    Food
+                </td>
+                <td class="flex items-center px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Delete</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <th scope="row" class="px-6 py-4 whitespace-nowrap dark:text-white">
+                    24-05-2024
+                </th>
+                <td class="px-6 py-4">
+                    960.00
+                </td>
+                <td class="px-6 py-4">
+                    Four bottles of water
+                </td>
+                <td class="px-6 py-4">
+                    Expenditure
+                </td>
+                <td class="px-6 py-4">
+                    Food
+                </td>
+                <td class="flex items-center px-6 py-4">
+                    <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Delete</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
