@@ -2,7 +2,7 @@
 {
     public record Transaction
     {
-        public string? Id { get; init; }
+        public string? Id { get; set; }
 
         public string? Date { get; init; }
 

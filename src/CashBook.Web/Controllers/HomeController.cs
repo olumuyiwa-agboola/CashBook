@@ -2,6 +2,7 @@ using System.Diagnostics;
 using CashBook.Web.Models;
 using CashBook.Core.Models;
 using Microsoft.AspNetCore.Mvc;
+using CashBook.Core.Extensions;
 using CashBook.Core.Abstractions.IServices;
 
 namespace CashBook.Web.Controllers
@@ -10,9 +11,26 @@ namespace CashBook.Web.Controllers
     {
         public async Task<IActionResult> Index()
         {
-            List<Transaction>? result = await _transactionsService.GetAllTransactions();
+            var transactionTypes = Enum.GetValues<TransactionType>()
+                                       .Cast<TransactionType>()
+                                       .Select(type => type.GetDisplayName()).ToList();
 
-            return View(result);
+            ViewBag.TransactionTypes = transactionTypes;
+
+            var transactionSubtypes = Enum.GetValues<TransactionSubtype>()
+                           .Cast<TransactionSubtype>()
+                           .Select(type => type.GetDisplayName()).ToList();
+
+            ViewBag.TransactionSubtypes = transactionSubtypes;
+
+            return View(await _transactionsService.GetAllTransactions());
+        }
+
+        public async Task<IActionResult> AddTransaction(Transaction transaction)
+        {
+            var result = await _transactionsService.CreateTransaction(transaction);
+
+            return RedirectToAction(nameof(Index));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

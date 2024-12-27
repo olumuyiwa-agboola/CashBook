@@ -8,7 +8,9 @@ namespace CashBook.Core.Services
     {
         public async Task<int> CreateTransaction(Transaction transaction)
         {
-            throw new NotImplementedException();
+            transaction.Id = string.Concat(transaction.Type![..1], new Random().Next(1000, 10000).ToString());
+
+            return await _transactionsRepository.AddTransaction(transaction);
         }
 
         public async Task<int> DeleteTransaction(string transactionId)
