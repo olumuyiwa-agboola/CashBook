@@ -8,6 +8,12 @@ namespace CashBook.Core.Models
         AirtimePurchase,
 
         [Display(Name = "Monthly Salary")]
-        MonthlySalary
+        MonthlySalary,
+
+        [Display(Name = "Food and Other Edibles")]
+        FoodAndEdibles,
+
+        [Display(Name = "Transportation")]
+        Transportation
     }
 }

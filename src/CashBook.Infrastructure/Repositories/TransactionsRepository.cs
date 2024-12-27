@@ -33,7 +33,7 @@ namespace CashBook.Infrastructure.Repositories
 
             parameters.Add("TransactionId", transactionId);
 
-            string query = "DELETE FROM Transactions WHERE TransactionId = @TransactionId";
+            string query = "DELETE FROM Transactions WHERE Id = @TransactionId";
 
             using IDbConnection dbConnection = _dbConnectionFactory.CreateTransactionsDbConnection();
 

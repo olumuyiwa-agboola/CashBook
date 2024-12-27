@@ -8,7 +8,7 @@
 
 <div class="flex justify-end mt-4 mb-4">
     <button type="button" data-modal-target="addTransactionModal" data-modal-show="addTransactionModal"
-        class="px-5 py-2.5 text-sm font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+    class="px-5 py-2.5 text-sm font-medium text-white inline-flex items-center bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-lg text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
         Add Transaction
     </button>
 </div>
@@ -58,7 +58,7 @@
                     </td>
                     <td class="flex items-center px-6 py-4">
                         <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                        <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Delete</a>
+                        <a asp-action="deleteTransaction" asp-route-id="@item.Id" class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3">Delete</a>
                     </td>
                 </tr>
             }
@@ -66,4 +66,6 @@
     </table>
 </div>
 
-@Html.RenderPartialAsync("_AddTransactionModal", new Transaction())
+@{
+    await Html.RenderPartialAsync("_AddTransactionModal", new Transaction());
+}

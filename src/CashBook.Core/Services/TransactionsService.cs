@@ -15,7 +15,7 @@ namespace CashBook.Core.Services
 
         public async Task<int> DeleteTransaction(string transactionId)
         {
-            throw new NotImplementedException();
+            return await _transactionsRepository.DeleteTransaction(transactionId);
         }
 
         public async Task<List<Transaction>?> GetAllTransactions()

@@ -23,12 +23,21 @@ namespace CashBook.Web.Controllers
 
             ViewBag.TransactionSubtypes = transactionSubtypes;
 
-            return View(await _transactionsService.GetAllTransactions());
+            var transactions = await _transactionsService.GetAllTransactions();
+
+            return View(transactions);
         }
 
         public async Task<IActionResult> AddTransaction(Transaction transaction)
         {
             var result = await _transactionsService.CreateTransaction(transaction);
+
+            return RedirectToAction(nameof(Index));
+        }
+
+        public async Task<IActionResult> DeleteTransaction(string id)
+        {
+            var result = await _transactionsService.DeleteTransaction(id);
 
             return RedirectToAction(nameof(Index));
         }
